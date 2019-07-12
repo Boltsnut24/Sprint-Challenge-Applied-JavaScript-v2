@@ -40,13 +40,12 @@ function MakeCard(data) {
   headlineBox.textContent = data.headline
   img.src = data.authorPhoto
   author.textContent = `By ${data.authorName}`
-  console.log(card)
+ 
   return card
 }
 
 axios.get('https://lambda-times-backend.herokuapp.com/articles')
   .then(response => {
-    console.log(response)
     bootstrapCards(response.data.articles.bootstrap)
     javascriptCards(response.data.articles.javascript)
     jqueryCards(response.data.articles.jquery)
